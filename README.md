@@ -4,7 +4,8 @@ HECKTOR-22：Please download the dataset from https://hecktor.grand-challenge.or
 PEAD：This is our private dataset
 
 # Evaluation
-test_hecktor.py
+test_hecktor.py  
+test_PEAD.py
 # Model
 We provide training models on the HECKTOR-22 dataset:https://pan.baidu.com/s/1vML3qfUpgTNJIqDENSR3OQ   
 Extraction code：asdf
