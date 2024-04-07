@@ -62,7 +62,7 @@ p = 0.5  # Data aug transforms probability
 
 data_path = FLAGS.root_path
 
-snapshot_path = "E:/Bai/CBCT/Ours/model/CBCT_DoubleNet_8labeled_cons0.2_cube_size36/U+R/" + FLAGS.model+'/'
+snapshot_path = "../model/CBCT_DoubleNet_8labeled_cons0.2_cube_size36/U+R/" + FLAGS.model+'/'
 
 num_classes = 3
 post_label = AsDiscrete(to_onehot=num_classes)
@@ -80,7 +80,6 @@ def create_model(name='Unet3D', num_classes=3):
 
 def test_for_nii(epoch_iterator_test, unet, resnet):
     total_metric = []
-    save_dir = 'E:/Bai/CBCT/Ours/result'
     with torch.no_grad():
         for step, batch in enumerate(epoch_iterator_test):
             inputs, label = (batch['img'].cuda(), batch['mask'].cuda())
