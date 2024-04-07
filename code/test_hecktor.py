@@ -49,7 +49,7 @@ parser.add_argument('--model', type=str,  default="U+R+CPS", help='model_name') 
 FLAGS = parser.parse_args()
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device_ids = [0, 1]  # 使用 cuda:0 和 cuda:1
+device_ids = [0, 1]
 
 # Initialize variables
 # Data
@@ -62,7 +62,7 @@ p = 0.5  # Data aug transforms probability
 
 data_path = FLAGS.root_path
 
-snapshot_path = "E:/Bai/MagicNet_hecktor_self/model/HECKTOR_DoubleNet_74labeled_cons0.2_cube_size36/U+R/" + FLAGS.model+'/'
+snapshot_path = "../model/HECKTOR_DoubleNet_74labeled_cons0.2_cube_size36/U+R/" + FLAGS.model+'/'
 
 num_classes = 3
 post_label = AsDiscrete(to_onehot=num_classes)
@@ -133,11 +133,10 @@ def cal_metric(pred, gt):
         return np.zeros(4)
 
 load_split_path = r"../data/split_1.pkl"
-# 读取划分结果
+
 with open(load_split_path) as f:
     split_dict = json.load(f)
 
-# 获取测试集的索引列表
 test_list = split_dict['test']
 print(test_list)
 
