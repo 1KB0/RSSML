@@ -44,7 +44,7 @@ from monai.transforms import (
 )
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--root_path', type=str, default='..\\hecktor_monai\\resampled_larger\\', help='Name of Experiment')  # todo change dataset path
+parser.add_argument('--root_path', type=str, default='../hecktor_monai/resampled_larger', help='Name of Experiment')  # todo change dataset path
 parser.add_argument('--model', type=str,  default="U+R+CPS", help='model_name')                # todo change test model name
 FLAGS = parser.parse_args()
 
@@ -80,7 +80,6 @@ def create_model(name='Unet3D', num_classes=3):
 
 def test_for_nii(epoch_iterator_test, unet, resnet):
     total_metric = []
-    save_dir = 'E:/Bai/MagicNet_hecktor_self/result'
     with torch.no_grad():
         for step, batch in enumerate(epoch_iterator_test):
             ct, pt, label = (batch['ct'].cuda(), batch['pt'].cuda(), batch['gtv'].cuda())
